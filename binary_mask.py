@@ -13,7 +13,7 @@ def masks(exp: int) -> list[int]:
         mask >>= size >> 1
         mask &= ~(~0 << size)
         for _ in range(i):
-            mask = (mask << size) + mask
+            mask |= (mask << size)
             size <<= 1
         res.append(mask)
         size >>= i + 1
